@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: var(--color-main-background);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+a {
+  color: var(--color-primary-90);
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: var(--color-primary-100);
+  cursor: pointer;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.table-header {
+  @apply px-6 py-3 text-xs font-light border-b border-t border-black-10 bg-white uppercase tracking-wider leading-4 text-black-90
+}
+
+.error {
+  @apply text-actions-stop text-center font-semibold text-sm my-2;
+}
+
+.auth-input {
+  @apply flex flex-col items-start px-4 py-2 gap-2 w-full h-full border-none outline-none;
+}
+
+
+
+.auth-button {
+  @apply mx-auto my-5 bg-primary-100 rounded text-white text-base;
+}
+
+.card {
+  @apply flex flex-col align-middle h-fit rounded-lg shadow bg-white mx-auto mt-5 p-2
+}
+
+@theme {
+  --color-main-background: #f4f5fa;
+  --color-primary-100: #5570f1;
+  --color-primary-90: #6078ec;
+  --color-primary-80: #6d83ec;
+  --color-primary-70: #7c8fec;
+  --color-primary-60: #8899e9;
+  --color-primary-50: #97a5eb;
+  --color-primary-40: #abb5e9;
+  --color-primary-30: #b6bfe8;
+  --color-primary-20: #c4cae8;
+  --color-primary-10: #dbdeee;
+
+  --color-secondary-100: #ffcc91;
+  --color-secondary-90: #ffd29e;
+  --color-secondary-80: #ffdaae;
+  --color-secondary-70: #ffdfba;
+  --color-secondary-60: #ffe5c8;
+  --color-secondary-50: #ffead1;
+  --color-secondary-40: #fff0de;
+  --color-secondary-30: #fff2e2;
+  --color-secondary-20: #fef5ea;
+  --color-secondary-10: #fef9f2;
+
+  --color-black-100: #1c1d22;
+  --color-black-90: #2c2d33;
+  --color-black-80: #33343a;
+  --color-black-70: #37393f;
+  --color-black-60: #45464e;
+  --color-black-50: #53545c;
+  --color-black-40: #6e7079;
+  --color-black-30: #8b8d97;
+  --color-black-20: #a6a8b1;
+  --color-black-10: #bec0ca;
+
+  --color-actions-go: #519c66;
+  --color-actions-go-secondary: #32936F;
+  --color-actions-stop: #cc5f5f;
+}
