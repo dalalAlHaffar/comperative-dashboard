@@ -64,7 +64,6 @@ const Sidebar = () => {
           icon={<HomeIcon />}
           label="Dashboard"
           isCollapsed={isCollapsed}
-          isActive="true"
           link="/dashboard"
         />
         <SidebarItem
@@ -100,7 +99,7 @@ const Sidebar = () => {
   );
 };
 
-const SidebarItem = ({ icon, label, isCollapsed, isActive, link }) => {
+const SidebarItem = ({ icon, label, isCollapsed, link }) => {
   const navigate = useNavigate();
   const onClickFunction = () => {
     if (link == "/logout") {
@@ -112,7 +111,8 @@ const SidebarItem = ({ icon, label, isCollapsed, isActive, link }) => {
     <div
       onClick={() => onClickFunction()}
       className={`flex items-center p-3 rounded-lg cursor-pointer hover:bg-gray-200 text-black-50 ${
-        isActive && "bg-primary-100 text-white hover:bg-primary-100"
+        location.href.includes(link) &&
+        "bg-primary-100 text-white hover:bg-primary-100"
       }`}
     >
       <div className="w-6 h-6">{icon}</div>

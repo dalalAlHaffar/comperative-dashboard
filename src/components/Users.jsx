@@ -5,7 +5,7 @@ import {
   TrashIcon,
   UserGroupIcon,
 } from "@heroicons/react/24/outline";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useGetUsers } from "../hooks/useGetUsers";
 import NavBar from "./NavBar";
@@ -26,6 +26,14 @@ const Users = () => {
 const UserTable = () => {
   const [users, setUsers] = useState([]);
   useGetUsers(setUsers);
+  const setIsActive = (value, id) => {
+    //Integrate with backend but there is no api for it
+    setUsers((prevUsers) =>
+      prevUsers.map((user) =>
+        user.id === id ? { ...user, isActive: value } : user
+      )
+    );
+  };
   return (
     <main className=" px-5 py-5">
       <div className="mt-8 flex min-w-full border-b border-gray-200 shadow rounded-lg overflow-auto">
@@ -40,7 +48,7 @@ const UserTable = () => {
             </tr>
           </thead>
           <tbody className="bg-white">
-            {users?.length > 0 &&
+            {users?.length > 0 ? (
               users.map((user) => (
                 <tr key={user.id} className="text-left">
                   <td className="px-6 py-4 flex items-center">
@@ -71,20 +79,28 @@ const UserTable = () => {
                     {user.phone}
                   </td>
                   <td className="px-6 py-4">
-                    <label className="flex items-center cursor-pointer">
+                    <label className="inline-flex items-center cursor-pointer">
                       <input
                         type="checkbox"
                         checked={user.isActive}
-                        onChange={() => setIsOn(!user.isActive)}
+                        onChange={() => setIsActive(!user.isActive, user.id)}
                         className="sr-only peer"
                       />
-                      <div className="w-12 h-6 pt-0.5 bg-primary-20 rounded-full p-1 transition peer-checked:bg-primary-100">
-                        <div className="w-5 h-5 bg-white rounded-full shadow-md transform transition peer-checked:translate-x-6"></div>
-                      </div>
+                      <div className="relative w-11 h-6 bg-primary-20 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-10 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-100"></div>
                     </label>
                   </td>
                 </tr>
-              ))}
+              ))
+            ) : (
+              <tr>
+                <td
+                  colSpan="3"
+                  className="border p-2 text-center text-gray-500"
+                >
+                  No results found
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
