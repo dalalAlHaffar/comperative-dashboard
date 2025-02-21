@@ -64,7 +64,7 @@ button {
 
 
 .auth-button {
-  @apply mx-auto my-5 bg-primary-100 rounded text-white text-base;
+  @apply mx-auto my-5 bg-primary-100 rounded text-white text-base px-5 py-2.5;
 }
 
 .card {

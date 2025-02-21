@@ -10,10 +10,11 @@ import {
   EyeIcon,
   LockClosedIcon,
 } from "@heroicons/react/24/outline";
+import hashPassword from "../helpers/hashPassword";
+import { useNotification } from "../helpers/NotificationContext";
 
 const Login = () => {
-  const [showSuccess, setShowSuccess] = useState(false);
-  const [showError, setShowError] = useState(false);
+  const { showSuccess, showError } = useNotification();
 
   const navigate = useNavigate();
   const validationSchema = Yup.object({
@@ -26,40 +27,6 @@ const Login = () => {
   });
   return (
     <div className="min-w-screen">
-      {showSuccess ? (
-        <div
-          className={`absolute top-0 items-center justify-center min-h-fit w-fit bg-white shadow-2xs mt-2 right-0 transition-transform duration-700 ease-in-out 
-                   ${
-                     showSuccess
-                       ? "translate-x-0 opacity-100"
-                       : "translate-x-full opacity-0"
-                   }`}
-        >
-          <SuccessAlert
-            message="You logged in successfully!"
-            onClose={() => setShowSuccess(false)}
-          />
-        </div>
-      ) : (
-        ""
-      )}
-      {showError ? (
-        <div
-          className={`absolute top-0 items-center justify-center min-h-fit w-fit bg-white shadow-2xs mt-2 right-0 transition-transform duration-700 ease-in-out 
-                   ${
-                     showError
-                       ? "translate-x-0 opacity-100"
-                       : "translate-x-full opacity-0"
-                   }`}
-        >
-          <ErrorAlert
-            message="Error ,Invalid data Please try again!!"
-            onClose={() => setShowError(false)}
-          />
-        </div>
-      ) : (
-        ""
-      )}
       <div className="card w-1/2 lg:w-[30%] md:w-2/5">
         <div className="text-center mt-10">
           <img src={logo} alt="Logo" className="w-10 h-10 mx-auto" />
@@ -83,18 +50,13 @@ const Login = () => {
             if (
               storedUser &&
               storedUser.email === values.email &&
-              storedUser.password === values.password
+              storedUser.password === (await hashPassword(values.password))
             ) {
-              setShowSuccess(true);
-              setInterval(() => {
-                setShowSuccess(false);
-                navigate("/dashboard");
-              }, 2000);
+              localStorage.setItem("authToken", storedUser.email);
+              showSuccess("Login successful!");
+              navigate("/dashboard");
             } else {
-              setShowError(true);
-              setInterval(() => {
-                setShowError(false);
-              }, 2000);
+              showError("Invalid Email/password!");
             }
           }}
         >

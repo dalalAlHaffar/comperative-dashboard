@@ -11,6 +11,7 @@ import {
 } from "@heroicons/react/24/outline";
 import logo from "../assets/logo.svg";
 import { useNavigate } from "react-router-dom";
+import { handleLogout } from "../helpers/handelLogout";
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -101,10 +102,15 @@ const Sidebar = () => {
 
 const SidebarItem = ({ icon, label, isCollapsed, isActive, link }) => {
   const navigate = useNavigate();
-
+  const onClickFunction = () => {
+    if (link == "/logout") {
+      return handleLogout();
+    }
+    return navigate(link);
+  };
   return (
     <div
-      onClick={() => navigate(link)}
+      onClick={() => onClickFunction()}
       className={`flex items-center p-3 rounded-lg cursor-pointer hover:bg-gray-200 text-black-50 ${
         isActive && "bg-primary-100 text-white hover:bg-primary-100"
       }`}

@@ -11,9 +11,11 @@ import {
   LockClosedIcon,
   UserIcon,
 } from "@heroicons/react/24/outline";
+import hashPassword from "../helpers/hashPassword";
+import { useNotification } from "../helpers/NotificationContext";
 
 const SignUp = () => {
-  const [showSuccess, setShowSuccess] = useState(false);
+  const { showSuccess, showError } = useNotification();
   const navigate = useNavigate();
 
   const validationSchema = Yup.object({
@@ -30,25 +32,6 @@ const SignUp = () => {
   });
   return (
     <div className="min-w-screen">
-      <div className="flex align-middle justify-center">
-        {showSuccess ? (
-          <div
-            className={`absolute top-0 items-center justify-center min-h-fit w-fit bg-white shadow-2xs mt-2 right-0 transition-transform duration-1000 ease-in-out 
-                   ${
-                     showSuccess
-                       ? "translate-x-0 opacity-100"
-                       : "translate-x-full opacity-0"
-                   }`}
-          >
-            <SuccessAlert
-              message="Sign up successful! Welcome to our platform."
-              onClose={() => setShowSuccess(false)}
-            />
-          </div>
-        ) : (
-          ""
-        )}
-      </div>
       <div className="card w-1/2 lg:w-[30%] md:w-2/5">
         <div className="text-center mt-5">
           <img src={logo} alt="Logo" className="w-10 h-10 mx-auto" />
@@ -70,12 +53,10 @@ const SignUp = () => {
           }}
           validationSchema={validationSchema}
           onSubmit={async (values) => {
+            values.password = await hashPassword(values.password);
             localStorage.setItem("user", JSON.stringify(values));
-            setShowSuccess(true);
-            setInterval(() => {
-              setShowSuccess(false);
-              navigate("/");
-            }, 3000);
+            showSuccess("Your account was created successfully!!");
+            navigate("/");
           }}
         >
           {({ errors, touched }) => (
