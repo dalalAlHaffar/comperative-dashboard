@@ -16,7 +16,7 @@ const Users = () => {
     <div className="flex min-w-screen">
       <Sidebar />
       <div className="flex flex-col flex-1 bg-main-background min-h-screen">
-        <NavBar />
+        <NavBar link="/users" />
         <UserTable />
       </div>
     </div>
@@ -36,8 +36,7 @@ const UserTable = () => {
               <th className="table-header">Email</th>
               <th className="table-header">Status</th>
               <th className="table-header">Phone</th>
-              <th className="table-header">Edit</th>
-              <th className="table-header">Delete</th>
+              <th className="table-header">Block/UnBlock</th>
             </tr>
           </thead>
           <tbody className="bg-white">
@@ -45,19 +44,14 @@ const UserTable = () => {
               users.map((user) => (
                 <tr key={user.id} className="text-left">
                   <td className="px-6 py-4 flex items-center">
-                    <Link
-                      to={`/profile/${user.id}`}
-                      className="flex items-center"
-                    >
-                      <img
-                        className="w-10 h-10 rounded-full"
-                        src={user.image}
-                        alt="admin dashboard UI"
-                      />
-                      <p className="text-sm text-gray-800 font-medium ml-4">
-                        {user.firstName} {user.lastName}
-                      </p>
-                    </Link>
+                    <img
+                      className="w-10 h-10 rounded-full"
+                      src={user.image}
+                      alt="admin dashboard UI"
+                    />
+                    <p className="text-sm text-gray-800 font-medium ml-4">
+                      {user.firstName} {user.lastName}
+                    </p>
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-500">
                     {user.email}
@@ -77,10 +71,17 @@ const UserTable = () => {
                     {user.phone}
                   </td>
                   <td className="px-6 py-4">
-                    <PencilSquareIcon className="w-6 h-6 text-blue-400" />
-                  </td>
-                  <td className="p-5 py-4">
-                    <TrashIcon className="w-6 h-6 text-red-400" />
+                    <label className="flex items-center cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={user.isActive}
+                        onChange={() => setIsOn(!user.isActive)}
+                        className="sr-only peer"
+                      />
+                      <div className="w-12 h-6 pt-0.5 bg-primary-20 rounded-full p-1 transition peer-checked:bg-primary-100">
+                        <div className="w-5 h-5 bg-white rounded-full shadow-md transform transition peer-checked:translate-x-6"></div>
+                      </div>
+                    </label>
                   </td>
                 </tr>
               ))}

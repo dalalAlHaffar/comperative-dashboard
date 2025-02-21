@@ -17,7 +17,7 @@ const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 768) {
+      if (window.outerWidth < 768) {
         setIsCollapsed(true);
       } else {
         setIsCollapsed(false);

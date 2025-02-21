@@ -1,13 +1,12 @@
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
-import SuccessAlert from "./SuccessAlert";
 import { useNavigate } from "react-router-dom";
-import ErrorAlert from "./ErrorAlert";
 import logo from "../assets/logo.svg";
 import {
   EnvelopeIcon,
   EyeIcon,
+  EyeSlashIcon,
   LockClosedIcon,
 } from "@heroicons/react/24/outline";
 import hashPassword from "../helpers/hashPassword";
@@ -15,6 +14,7 @@ import { useNotification } from "../helpers/NotificationContext";
 
 const Login = () => {
   const { showSuccess, showError } = useNotification();
+  const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
   const validationSchema = Yup.object({
@@ -53,6 +53,7 @@ const Login = () => {
               storedUser.password === (await hashPassword(values.password))
             ) {
               localStorage.setItem("authToken", storedUser.email);
+              localStorage.setItem("userName", storedUser.name);
               showSuccess("Login successful!");
               navigate("/dashboard");
             } else {
@@ -92,11 +93,22 @@ const Login = () => {
                   <LockClosedIcon className="w-5 h-5 text-black-40" />
                   <Field
                     name="password"
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     required
                     placeholder="Password"
                     className="auth-input"
                   />
+                  {!showPassword ? (
+                    <EyeSlashIcon
+                      className="w-5 h-5 text-gray-500 cursor-pointer"
+                      onClick={() => setShowPassword(true)}
+                    />
+                  ) : (
+                    <EyeIcon
+                      className="w-5 h-5 text-gray-500 cursor-pointer"
+                      onClick={() => setShowPassword(false)}
+                    />
+                  )}
                 </div>
                 <ErrorMessage
                   name="password"

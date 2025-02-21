@@ -1,9 +1,7 @@
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
-import SuccessAlert from "./SuccessAlert";
 import { useNavigate } from "react-router-dom";
-import ErrorAlert from "./ErrorAlert";
 import logo from "../assets/logo.svg";
 import {
   EnvelopeIcon,

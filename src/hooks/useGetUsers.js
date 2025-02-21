@@ -76,6 +76,7 @@ export const useGetUsers = (setUsers) => {
                 },
                 "role": "admin",
                 "isActive": true,
+                // "$2b$10$em5jhARB8MEhi4SbIsNvvuf/xuhSRlkey9HFfo/dJ9EP1YQLvXOPW"
             },
             {
                 "id": 2,
