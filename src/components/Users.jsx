@@ -26,13 +26,14 @@ const Users = () => {
 const UserTable = () => {
   const [users, setUsers] = useState([]);
   useGetUsers(setUsers);
-  const setIsActive = (value, id) => {
-    //Integrate with backend but there is no api for it
-    setUsers((prevUsers) =>
-      prevUsers.map((user) =>
-        user.id === id ? { ...user, isActive: value } : user
-      )
-    );
+  const setIsActive = (id) => {
+    setUsers((prevUsers) => {
+      const updated = prevUsers.map((user) =>
+        user.id === id ? { ...user, isActive: !user.isActive } : user
+      );
+      localStorage.setItem("users", JSON.stringify(updated));
+      return updated;
+    });
   };
   return (
     <main className=" px-5 py-5">
@@ -75,7 +76,7 @@ const UserTable = () => {
                       {user.isActive ? "Active" : "InActive"}
                     </span>
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-500">
+                  <td className="px-6 py-4 text-sm text-gray-500 break-words">
                     {user.phone}
                   </td>
                   <td className="px-6 py-4">
@@ -83,7 +84,7 @@ const UserTable = () => {
                       <input
                         type="checkbox"
                         checked={user.isActive}
-                        onChange={() => setIsActive(!user.isActive, user.id)}
+                        onChange={() => setIsActive(user.id)}
                         className="sr-only peer"
                       />
                       <div className="relative w-11 h-6 bg-primary-20 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-10 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-100"></div>
@@ -93,10 +94,7 @@ const UserTable = () => {
               ))
             ) : (
               <tr>
-                <td
-                  colSpan="3"
-                  className="border p-2 text-center text-gray-500"
-                >
+                <td colSpan="5" className=" text-center p-5  text-gray-500">
                   No results found
                 </td>
               </tr>

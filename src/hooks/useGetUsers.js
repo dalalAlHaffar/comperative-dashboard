@@ -2171,9 +2171,11 @@ export const useGetUsers = (setUsers) => {
         "skip": 0,
         "limit": 30
     }
+    if (!localStorage.getItem('users'))
+        localStorage.setItem('users', JSON.stringify(data.users));
     useEffect(() => {
         // fetch("https://dummyjson.com/users").then((res) => res.json()).then((data) => setUsers(data.users));
-        setUsers(data.users);
+        setUsers(JSON.parse(localStorage.getItem('users')));
 
     }, []);
 
