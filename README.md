@@ -238,13 +238,13 @@ export default SignUp;
 ## 📸 Screenshots
 
 ### 📌 Order List Page
--[Order Management](https://drive.google.com/file/d/14gdb4gpT5DVy5IsWJl64OjoVr4bMN3YF/view?usp=drive_link)
+![Order Management](https://github.com/dalalAlHaffar/comperative-dashboard/blob/main/public/Screenshot%202025-02-23%20at%2010.49.19%E2%80%AFPM.png)
 ### 📌 Users List Page
--[User Management](https://drive.google.com/file/d/1IRRj-9M_b4o3o-IEWp8Ll66-VcPOBnmr/view?usp=sharing)
+![User Management](https://github.com/dalalAlHaffar/comperative-dashboard/blob/main/public/Screenshot%202025-02-23%20at%2010.49.12%E2%80%AFPM.png)
 ### 📌 DashBoard Page
--[Dashboard Management](https://drive.google.com/file/d/1f33-CDRNPz8ITKRiSbwfxq1XFBpBocdS/view?usp=drive_link)
+![Dashboard Management](https://github.com/dalalAlHaffar/comperative-dashboard/blob/main/public/Screenshot%202025-02-23%20at%2010.49.04%E2%80%AFPM.png)
 ### 📌 Login Page
--[Login Management](https://drive.google.com/file/d/1glkGWV2BPdP5bfaGmfpIbTFFFOnfhbNY/view?usp=sharing)
+![Login Management](https://github.com/dalalAlHaffar/comperative-dashboard/blob/main/public/Screenshot%202025-02-23%20at%2010.48.48%E2%80%AFPM.png)
 ## 🛠️ Future Enhancements
 - API integration for real-time data storage
 - Export orders as CSV or PDF
