@@ -9,7 +9,6 @@ import {
 import Dashboard from "./components/Dashboard";
 import SignUp from "./components/SignUp";
 import Users from "./components/Users";
-import requireAuth from "./helpers/ProtectedRoute";
 import ProtectedRoute from "./helpers/ProtectedRoute";
 import OrderManagement from "./components/OrderManagement";
 
@@ -54,6 +53,5 @@ function App() {
     </Router>
   );
 }
-
 
 export default App;
