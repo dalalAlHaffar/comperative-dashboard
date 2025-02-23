@@ -33,7 +33,7 @@ A simple **Order Management System** built using **React, Tailwind CSS, ChartJS 
  ┃ ┃ ┣ 📜 Sidebar.jsx
  ┃ ┃ ┣ 📜 OrderManagement.jsx
  ┃ ┃ ┣ 📜 Users.jsx
- ┃ ┃ ┣ 📜 Products.jsx
+ ┃ ┃ ┣ 📜 ProductManagement.jsx
  ┃ ┃ ┣ 📜 SalesChart.jsx 
  ┃ ┃ ┣ 📜 SignUp.jsx 
  ┃ ┃ ┣ 📜 Login.jsx 
@@ -254,3 +254,4 @@ export default SignUp;
 
 - [GitHub Repository](https://github.com/dalalAlHaffar/comperative-dashboard)
 - [Live Demo](https://drive.google.com/drive/folders/1048ZHYChKnu9JkMURQv4FOHfuCS1bvFl?usp=drive_link)
+- [Figma Design](https://www.figma.com/design/41U9dUZLu8LbUq8oRISLKo/Metrix-SaaS-Dashboard-UI-Kit-(Community)?node-id=36-13667&t=Udg96NB6764JdNS3-0)

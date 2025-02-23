@@ -11,6 +11,7 @@ import SignUp from "./components/SignUp";
 import Users from "./components/Users";
 import ProtectedRoute from "./helpers/ProtectedRoute";
 import OrderManagement from "./components/OrderManagement";
+import ProductManagement from "./components/ProductManagement";
 
 const titles = {
   "/": "Login | Metrix",
@@ -44,7 +45,7 @@ function App() {
           <Route path="/users" element={<Users />} />
         </Route>
         <Route element={<ProtectedRoute />}>
-          <Route path="/products" element={<SignUp />} />
+          <Route path="/products" element={<ProductManagement />} />
         </Route>
         <Route element={<ProtectedRoute />}>
           <Route path="/orders" element={<OrderManagement />} />
