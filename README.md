@@ -238,16 +238,19 @@ export default SignUp;
 ## 📸 Screenshots
 
 ### 📌 Order List Page
-![Order Management](https://drive.google.com/file/d/14gdb4gpT5DVy5IsWJl64OjoVr4bMN3YF/view?usp=drive_link)
+-[Order Management](https://drive.google.com/file/d/14gdb4gpT5DVy5IsWJl64OjoVr4bMN3YF/view?usp=drive_link)
 ### 📌 Users List Page
-![User Management](https://drive.google.com/file/d/1IRRj-9M_b4o3o-IEWp8Ll66-VcPOBnmr/view?usp=sharing)
+-[User Management](https://drive.google.com/file/d/1IRRj-9M_b4o3o-IEWp8Ll66-VcPOBnmr/view?usp=sharing)
 ### 📌 DashBoard Page
-![Dashboard Management](https://drive.google.com/file/d/1f33-CDRNPz8ITKRiSbwfxq1XFBpBocdS/view?usp=drive_link)
+-[Dashboard Management](https://drive.google.com/file/d/1f33-CDRNPz8ITKRiSbwfxq1XFBpBocdS/view?usp=drive_link)
 ### 📌 Login Page
-![Login Management](https://drive.google.com/file/d/1glkGWV2BPdP5bfaGmfpIbTFFFOnfhbNY/view?usp=sharing)
+-[Login Management](https://drive.google.com/file/d/1glkGWV2BPdP5bfaGmfpIbTFFFOnfhbNY/view?usp=sharing)
 ## 🛠️ Future Enhancements
-
 - API integration for real-time data storage
 - Export orders as CSV or PDF
 
 
+## 🔗 Useful Links
+
+- [GitHub Repository](https://github.com/dalalAlHaffar/comperative-dashboard)
+- [Live Demo](https://drive.google.com/drive/folders/1048ZHYChKnu9JkMURQv4FOHfuCS1bvFl?usp=drive_link)
