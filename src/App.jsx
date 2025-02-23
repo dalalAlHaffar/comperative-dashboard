@@ -11,6 +11,8 @@ import SignUp from "./components/SignUp";
 import Users from "./components/Users";
 import requireAuth from "./helpers/ProtectedRoute";
 import ProtectedRoute from "./helpers/ProtectedRoute";
+import OrderManagement from "./components/OrderManagement";
+
 const titles = {
   "/": "Login | Metrix",
   "/dashboard": "Dashboard | Metrix",
@@ -46,11 +48,12 @@ function App() {
           <Route path="/products" element={<SignUp />} />
         </Route>
         <Route element={<ProtectedRoute />}>
-          <Route path="/orders" element={<SignUp />} />
+          <Route path="/orders" element={<OrderManagement />} />
         </Route>
       </Routes>
     </Router>
   );
 }
+
 
 export default App;
